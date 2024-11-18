@@ -1,31 +1,17 @@
-from flex_db import FlexDB
+from database import FlexDB
 
 # Create a persistent database
 db = FlexDB("flex_database.json")
 
-# Use database
-db.create_collection("users")
-db.create_collection("orders")
+# Create collections with schemas
+# db.create_collection("users", schema={"name": str, "age": (int, True), "email": (str, False)})
+# db.create_collection("products", schema={"name": str, "price": (float, True), "in_stock": (bool, True)})
+
 
 # Insert records
-db.insert("users", "user1", {"name": "Alice", "age": 30})
-db.insert("users", "user2", {"name": "Bob", "age": 25})
-db.insert("orders", "order1", {"item": "Laptop", "price": 1000})
-db.insert("orders", "order2", {"item": "Phone", "price": 500})
+# db.insert("users", "user1", {"name": "Alice", "age": 30, "email": "alice@example.com"})
+# db.insert("products", "prod1", {"name": "Laptop", "price": 1000.0, "in_stock": True})
 
 # Read records
 print(db.read("users"))
-print(db.read("orders", "order1"))
-
-# Update records
-db.update("users", "user1", {"age": 31})
-
-# Add relations
-db.add_relation("users", "user1", "orders", "order1")
-db.add_relation("users", "user2", "orders", "order2")
-
-# Check relations
-print(db.read("users", "user1"))
-
-# Delete records
-db.delete("orders", "order2")
+print(db.read("products"))
