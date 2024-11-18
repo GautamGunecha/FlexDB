@@ -1,2 +1,20 @@
+# Ignore virtual environment
+env/
+
+# Ignore compiled Python files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Ignore persistent database file
 flex_database.json
-__pycache__
+
+# Ignore IDE or editor-specific files
+.vscode/
+.idea/
+*.swp
+
+# Ignore system-specific files
+.DS_Store
+Thumbs.db
